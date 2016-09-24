@@ -70,12 +70,10 @@ public class Gateway extends SerialModemGateway {
 	static {
 
 		LOGGER.info("");
-		LOGGER.info("#### #   # ####    #### #### #   # #   # #### #   # ###  #### ###");
-		LOGGER.info("#    ## ## #       #    #  # ## ## ## ## #  # ##  # #  # #    #  # ");
-		LOGGER.info("#### # # # #### ## #    #  # # # # # # # #### # # # #  # #### ###");
-		LOGGER.info("   # #   #    #    #    #  # #   # #   # #  # #  ## #  # #    # #");
-		LOGGER.info("#### #   # ####    #### #### #   # #   # #  # #   # ###  #### #  #");
-		LOGGER.info("Tool to command IoT objects via Short Message Service from a serial GSM Modem.");
+		LOGGER.info(" ___ _  _  ___  ___ ___  _  _  _  _   _   _  _  ___  ___ ___");
+		LOGGER.info("|_-<| ./ ||_-< //  / _ .| ./ || ./ | /_. | .  || _ .|_ /| _ .".replace(".", "\\"));
+		LOGGER.info("___/|_  _|___/ ..__.___/|_  _||_  _||_ _||_ ._||___/|__.|_ ..".replace(".", "\\"));
+		LOGGER.info("Tool to command IoT objects via SMS from a serial GSM Modem.");
 		LOGGER.info("");
 
 		LOGGER.info("Reading gateway's configuration properties...");
