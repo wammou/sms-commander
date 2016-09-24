@@ -62,6 +62,11 @@
 			<name>SMSlibv3 Maven Repository</name>
 			<url>http://smslib.org/maven2/v3/</url>
 		</repository>
+		<repository>
+			<id>oss-sonatype</id>
+			<name>oss-sonatype</name>
+			<url>https://oss.sonatype.org/content/groups/public</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
