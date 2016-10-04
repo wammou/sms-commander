@@ -17,12 +17,15 @@
  *   Fifth Floor, Boston, MA 02110-1301  USA
  */
 
-package org.helenium.iot.smscommander.reveiver;
+package org.helenium.iot.smscommander.receiver;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import org.helenium.iot.smscommander.Gateway;
+import org.helenium.iot.smscommander.actions.IAction;
+import org.helenium.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.smslib.InboundMessage;
@@ -64,8 +67,32 @@ public class Receiver {
 			Service.getInstance().readMessages(msgList, MessageClasses.ALL);
 
 			for (final InboundMessage msg : msgList) {
-				LOGGER.info(msg.toString());
-				// TODO run an action depending on message content
+
+				final String message = msg.toString();
+
+				LOGGER.info("MESSAGE> " + message);
+
+				// Run an action depending on message content
+				final String[] splitedMsg = message.split(">");
+
+				if(splitedMsg.length  == 2){
+
+					// Extract action name from the current message
+					final String actionName = splitedMsg[0];
+
+					// Exact the action's param from the current message
+					final String actionParam = splitedMsg[1];
+
+					// Get action class corresponding to action name from actions properties file
+					final Properties properties = FileUtils.loadPropertiesOfFile("/config/actions.properties");
+					final String targetAction = properties.getProperty(actionName);
+
+					// Load and execute underlying action
+					final IAction action = (IAction) Class.forName("org.helenium.iot.smscommander.actions." + targetAction).newInstance();
+					action.execute(actionParam);
+				} else {
+					LOGGER.error("Malformed message content");
+				}
 			}
 
 		}

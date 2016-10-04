@@ -17,7 +17,7 @@
  *   Fifth Floor, Boston, MA 02110-1301  USA
  */
 
-package org.helenium.iot.smscommander.reveiver;
+package org.helenium.iot.smscommander.receiver;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

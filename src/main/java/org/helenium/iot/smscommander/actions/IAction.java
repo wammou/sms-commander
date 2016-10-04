@@ -25,6 +25,6 @@ package org.helenium.iot.smscommander.actions;
 
 public interface IAction {
 
-	public void execute();
+	public void execute(final String pParam);
 
 }

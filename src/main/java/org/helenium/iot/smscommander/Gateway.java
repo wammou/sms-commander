@@ -22,7 +22,7 @@ package org.helenium.iot.smscommander;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.helenium.iot.smscommander.reveiver.Receiver;
+import org.helenium.iot.smscommander.receiver.Receiver;
 import org.helenium.iot.smscommander.sender.Sender;
 import org.helenium.utils.FileUtils;
 import org.slf4j.Logger;

@@ -19,15 +19,29 @@
 
 package org.helenium.iot.smscommander.actions;
 
+import java.io.IOException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author Walid Ammou < w.ammou@helenium.org >
  */
 
 public class DownloadYTVideoAction implements IAction {
 
-	public void execute() {
+	private final static Logger LOGGER = LoggerFactory.getLogger(DownloadYTVideoAction.class);
 
+	public void execute(final String pParam) {
 
+		// Download the youtube param url
+		final String action = "youtube-dl " + pParam;
+		try {
+			LOGGER.info("Action> " + action);
+			Runtime.getRuntime().exec(action);
+		} catch (final IOException pE) {
+			LOGGER.info("Error while executing the action: " + action, pE);
+		}
 	}
 
 }

@@ -44,7 +44,7 @@ public class Launcher {
 			Gateway.getSender().send("Hello, SMS send from GSM Modem!");
 
 		} catch (final Exception pE) {
-			pE.printStackTrace();
+			LOGGER.error("Error: ", pE);
 		}
 	}
 }
